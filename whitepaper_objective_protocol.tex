@@ -115,7 +115,7 @@ Reputation should flow to an early evaluator in the case that a later evaluator 
 if $(i, c, v)$ is an evaluation in $h$ and $i \neq k$ then $\Delta_{k, c, v}(r, h)(i) \geq 0$
 \end{condition}
 
-\subsection{Reward consensus voters proportionally}
+\subsection{Reward consensus in proportion to their reputation}
 Previous voters should, {\em ceteris paribus}, be rewarded in proportion to their reputation. The more reputation you have, the more reputation you gain, and the less you have, the less you can gain.
 \begin{condition}{reward proportionally and linearly}
 If $(i, c, v)$  and $(j, c, v)$ are evaluations in $h$, then $\Delta_{k, c, v}(r, h)(i) \geq \Delta_{k,c,v}(r', h)(j)$ if and only if $\flow(r, h)(i) \geq \flow(r', h)(j)$
@@ -128,6 +128,14 @@ However, these conditions may be too strong - the  it embodies the `rich get ric
 \begin{condition}{reward proportionally}
 Let $h = (e_0, ..., (i, c, v), ..., (j, c, v), ..., e_n)$. Then $\flow_{k, c, v}(r, h)(i) \geq \flow_{k,c,v}(r', h)(j)$ if and only if $\flow(r, h)(i) \geq \flow(r', h)(j)$ 
 \end{condition}
+
+\subsection{Flow should be proportional to the reputation of the evaluator}
+If an evaluator has more reputation than another, then the reputation flow on the basis of an evaluation by the less influential evaluator should be less than that of a more influential evaluator:
+
+\begin{condition}{reputation flows proportional to evaluator}
+if $\flow(r, h)(k) > \flow(r, h)(l)$, then $|\Delta_{k, c, v}(r,h)(i)| \geq |\Delta_{l, c, v}(r,h)(i)|$ for each $i \not\in \{k, l \}$
+\end{condition}
+
 
 \subsection{Contribution Independence}
 
