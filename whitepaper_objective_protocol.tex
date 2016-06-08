@@ -303,18 +303,19 @@ Given contribution independence and time indepence, we know that  $\Phi_{k,c,v}(
 
 Now to keep the definitions simple, write $r'$ for $\flow(r, h)$, and write $r'(S)$ for $\Sigma_{j\in S}\flow(r, h)(j)$
 
-Consider now the following definition, where we have reputation flow from non-voters to previous voters:
+Consider now the following definition, which starts from a relatively simple idea: if $k$  votes, a fraction of the reputation of agents that have not voted yet will flow to those who have voted just like $k$. This fraction depends on the reputation $r'(k)$ at the moment of voting, and a parameter $\gamma$ (with $0<\gamma < 1$) that determines how fast the reputation flows. 
+More precisely, in the following definition, the amount of reputation that will flow from the set of non-voters $O$ to aligned voters is equal to $\gamma \cdot r'(k) \cdot r'(O)$.
 
 \noindent {\bf Definition: flow function example}
+
 \begin{enumerate}
 \item $\Delta_{k,c,v}(r,h)(i) = 0$ if $i=k$ (current voter gains nothing)
 \item $\Delta_{k,c,v}(r,h)(i) = 0$ if $i \in -V$ (different voters gain nothing)
-\item $\Delta_{k,c,v}(r,h)(i) = r'(k) \cdot \gamma \cdot r'(O) \cdot r'(i) / r'(V)$ 
+\item $\Delta_{k,c,v}(r,h)(i) = \gamma \cdot r'(k) \cdot  r'(O) \cdot r'(i) / r'(V)$ 
 if $i \in V$ (equal voters get some reputation from non-voters)
-\item $\Delta_{k,c,v}(r,h)(i) = r'(k) \cdot (1-\gamma) \cdot
+\item $\Delta_{k,c,v}(r,h)(i) =  -\gamma \cdot r'(k) \cdot
 r'(O)
-\cdot r'(i) / 
-r'(O) $ if $i \in O$ (non-voters loose some reputation)
+\cdot r'(i) / r'(O) $ if $i \in O$ (non-voters loose some reputation)
 \end{enumerate}
 {\bf claim:} The function $\Delta_{k, c, v}$ defined here satisfies the properties `split insensitivity', `reward consensus voters', `reward proportionally', `contribution independence',  `time independence',  `punish inactivity', `incentivize early voting' and `reputation flows proportional to evaluator'.
 
